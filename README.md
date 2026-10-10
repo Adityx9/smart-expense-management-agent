@@ -47,17 +47,6 @@ It is a transparent deterministic agent, not a generative LLM. Its actions and r
 ## Data and privacy
 Expenses and budgets are stored locally as `expenses.json`, `budgets.json`, and `monthly_finance.json`. These are ignored by Git. Do not upload real personal financial data to a public repository.
 
-## GitHub upload
-Create a new public repository called `smart-expense-management-agent-v2`. In the extracted project folder, run:
-
-```bash
-git init
-git add .
-git commit -m "Improve Smart Expense Management Agent UI and decision loop"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/smart-expense-management-agent-v2.git
-git push -u origin main
-```
 
 ## Demo for assessment
 1. Load demo transactions in Transactions.
