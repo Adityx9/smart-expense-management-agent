@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpendSmart Agent Run Report",
+  "type": "object",
+  "required": [
+    "expenses",
+    "summary",
+    "spending_by_category",
+    "budget_utilization_percent",
+    "risk_assessment",
+    "next_action",
+    "recommendations",
+    "self_evaluation",
+    "trace"
+  ],
+  "properties": {
+    "expenses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "date",
+          "description",
+          "amount",
+          "category",
+          "payment_method"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "amount": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Food",
+              "Transport",
+              "Shopping",
+              "Bills",
+              "Health",
+              "Entertainment",
+              "Other"
+            ]
+          },
+          "category_source": {
+            "type": "string",
+            "enum": [
+              "user",
+              "rule"
+            ]
+          },
+          "payment_method": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "transactions_processed",
+        "invalid_transactions_skipped",
+        "total_spending",
+        "over_budget_categories",
+        "self_evaluation_passed"
+      ],
+      "properties": {
+        "transactions_processed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "invalid_transactions_skipped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_spending": {
+          "type": "number",
+          "minimum": 0
+        },
+        "over_budget_categories": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "self_evaluation_passed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "spending_by_category": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "budget_utilization_percent": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "over_budget_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_assessment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_evaluation": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "step",
+          "status",
+          "details"
+        ],
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
