@@ -59,8 +59,6 @@ git remote add origin https://github.com/YOUR_USERNAME/smart-expense-management-
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username. Alternatively use GitHub's **Add file → Upload files** and upload the extracted files (not the ZIP itself).
-
 ## Demo for assessment
 1. Load demo transactions in Transactions.
 2. Show category selection in Add expense.
@@ -68,7 +66,6 @@ Replace `YOUR_USERNAME` with your GitHub username. Alternatively use GitHub's **
 4. Run the agent. Show the risk assessment and chosen next action.
 5. Show the self-evaluation checks and execution trace.
 6. Run the test suite and open `REPORT.md`.
-
 
 ## Monthly income, investments, and savings
 
